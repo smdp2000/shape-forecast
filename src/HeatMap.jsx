@@ -34,7 +34,7 @@ const HeatmapTable = ({ data = [], shapeletNames = [], modelNames = [] }) => {
                                     <th></th>
                                     {images.map((src, index) => (
                                         <th key={index} style={{ textAlign: 'center' }}>
-                                            <Image src={src} alt={`Image ${index}`} thumbnail width={100} />
+                                            <Image src={process.env.PUBLIC_URL+src} alt={`Image ${index}`} thumbnail width={100} />
                                         </th>
                                     ))}
                                 </tr>
