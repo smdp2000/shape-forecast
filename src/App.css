@@ -36,3 +36,27 @@
     transform: rotate(360deg);
   }
 }
+
+button.dropdown-toggle.btn.btn-outline-secondary{
+  width: 100%;
+
+}
+/* App.css or a relevant CSS file */
+.heatmap-table th, 
+.heatmap-table td {
+  border: none !important; /* Use !important to override Bootstrap's default styling */
+  padding: 0 !important;   /* Remove padding to ensure cells touch each other */
+}
+
+/* This is to ensure that the table cells have a minimum width even when they are empty */
+.heatmap-table td {
+  min-width: 150px;  /* or whatever minimum width you want */
+}
+
+/* Add this to your App.css or equivalent CSS file */
+.responsive-fixed-size {
+  width: 100%;    /* Responsive: scale with parent element */
+  max-width: 50px; /* Maximum width */
+  max-height: 50px; /* Maximum height */
+  object-fit: cover; /* Cover the area without stretching */
+}
