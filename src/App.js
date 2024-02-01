@@ -12,7 +12,7 @@ const ShapeForecastApp = () => {
     const [data, setData] = useState(null);
     const [state, setState] = useState("06");
     const [availableModels, setAvailableModels] = useState([]);
-    const [selectedModels, setSelectedModels] = useState(["COVIDhub-baseline", "COVIDhub-ensemble"]);
+    const [selectedModels, setSelectedModels] = useState(["COVIDhub-baseline", "COVIDhub-4_week_ensemble"]);
     const [dates, setDates] = useState([]);
     const [date, setDate] = useState("");
     const [shapeType, setShapeType] = useState("");
