@@ -65,8 +65,16 @@ const ShapeForecastApp = () => {
           setAvailableModels(newAvailableModels);
       
           // Access the agreement value for the current date and state
-          const newAgreementValue = data[date] && data[date].all_agreements ? data[date].all_agreements[state] : 0;
-          setAgreementValue(newAgreementValue);
+         const newAgreementValue = data[date] && data[date].all_agreements ? data[date].all_agreements[state] : 0;
+          //all_agreements_prob
+          if(shapeType=='Median Shape'){
+            setAgreementValue(newAgreementValue);
+          }
+          else{
+            if (data[date] && data[date].all_agreements_prob) {
+                setAgreementValue(data[date].all_agreements_prob[state]);
+              }
+          }
       
           // Keep only the models that are both selected and available for the new date and state
           setSelectedModels(prevSelectedModels => prevSelectedModels.filter(model => newAvailableModels.includes(model)));
@@ -145,7 +153,14 @@ const ShapeForecastApp = () => {
                             label="Median" 
                             value="Median Shape" 
                             checked={shapeType === 'Median Shape'} 
-                            onChange={e => setShapeType(e.target.value)} 
+                            onChange={(e) => {
+                                setShapeType(e.target.value)
+    
+                                if (data[date] && data[date].all_agreements) {
+                                    setAgreementValue(data[date].all_agreements[state]);
+                                  }
+                                
+                                }} 
                         />
                         <Form.Check 
                             inline 
@@ -153,7 +168,14 @@ const ShapeForecastApp = () => {
                             label="Probabilistic" 
                             value="Probabilistic Shape" 
                             checked={shapeType === 'Probabilistic Shape'} 
-                            onChange={e => setShapeType(e.target.value)} 
+                           onChange={(e) => {
+                            setShapeType(e.target.value)
+
+                            if (data[date] && data[date].all_agreements_prob) {
+                                setAgreementValue(data[date].all_agreements_prob[state]);
+                              }
+                            
+                            }} 
                         />
                     </div>
                 </Form.Group>
